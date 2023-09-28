@@ -26,7 +26,7 @@ jobs:
       
       - uses: actions/checkout@v3
       - uses: julia-actions/setup-julia@v1.9.2
-      - run: julia -e 'println("Hello, World!")'
+      - run: julia -L Video_up_and_down_sampler.jl -e 'main("test","test")'
 
       
 
