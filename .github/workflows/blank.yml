@@ -23,12 +23,11 @@ jobs:
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
-      
-    	- uses: actions/checkout@v3
-    	- uses: julia-actions/setup-julia@v1.9.2
-			- run: julia ] activate videosampler
-			- run: julia ] instantiate
-    	- run: julia Video_up_and_down_sampler.jl -e 'main("test","test")'
+      - uses: actions/checkout@v3
+      - uses: julia-actions/setup-julia@v1.9.2
+      - run: julia ] activate videosampler
+      - run: julia ] instantiate
+      - run: julia Video_up_and_down_sampler.jl -e 'main("test","test")'
 
       
 
