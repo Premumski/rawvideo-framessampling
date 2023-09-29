@@ -3,6 +3,7 @@ Pkg.activate("videosampler")
 Pkg.instantiate()
 using VideoIO, Images
 
+
 #entry point
 #function main(inputpath::String, outputpath::String)
 function main()
