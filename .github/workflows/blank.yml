@@ -25,8 +25,8 @@ jobs:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v3
       - uses: julia-actions/setup-julia@v1.9.2
-      - run: julia -e 'import Pkg; import Pkg; Pkg.activate("videosampler"); Pkg.instantiate()'
-      - run: julia Video_up_and_down_sampler.jl -e 'main()'
+      - run: julia -L Video_up_and_down_sampler.jl -e 'import Pkg; import Pkg; Pkg.activate("videosampler"); Pkg.instantiate(); main()'
+      
 
       
 
