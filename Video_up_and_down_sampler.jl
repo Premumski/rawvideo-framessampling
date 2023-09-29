@@ -2,7 +2,8 @@
 using VideoIO, Images
 
 #entry point
-function main(inputpath::String, outputpath::String)
+#function main(inputpath::String, outputpath::String)
+function main()
 
 end
 
