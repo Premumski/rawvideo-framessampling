@@ -3,7 +3,7 @@ include("ActivateEnv.jl")
 
 #entry point
 #function main(inputpath::String, outputpath::String)
-function main()
+function main(kwargs...)
 
 end
 
