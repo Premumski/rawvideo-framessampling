@@ -1,14 +1,11 @@
 include("ActivateEnv.jl")
 
 
-
-
-
 #entry point
 #function main(inputpath::String, outputpath::String)
 function main(kwargs...)
 
-    RawVideo120fps = VideoIO.load("IMG_0152.MOV")
+    RawVideo120fps = VideoIO.load("IMG_0155.MOV")
 
     #rotate video
     #RawVideo120fps = rotatevideo(RawVideo120fps)
@@ -16,9 +13,6 @@ function main(kwargs...)
     #downscale video
     RawVideo120fps = downscalevideo(RawVideo120fps)
     
-
-    
-
 
     #empty matrix to store frames
     imgstack_60fps = []
@@ -84,7 +78,7 @@ function main(kwargs...)
 
     #save every imagestack as a video with 60fps
     encoder_options = (crf=23, preset="medium")
-    VideoIO.save("vergleich.mp4", allimgstacks, framerate=60, encoder_options=encoder_options)
+    VideoIO.save("vergleich.mp4", allimgstacks, framerate=60, encoder_options=encoder_options, target_pix_fmt = VideoIO.AV_PIX_FMT_YUV420P)
     #VideoIO.save("60fps.mp4", imgstack_60fps, framerate=60, encoder_options=encoder_options)
     #VideoIO.save("30fps.mp4", imgstack_30fps, framerate=60, encoder_options=encoder_options)
     #VideoIO.save("20fps.mp4", imgstack_20fps, framerate=60, encoder_options=encoder_options)
