@@ -5,6 +5,10 @@ include("ActivateEnv.jl")
 #function main(inputpath::String, outputpath::String)
 function main(kwargs...)
 
+end 
+
+function ci()
+
     RawVideo120fps = VideoIO.load("IMG_0155.MOV")
 
     #rotate video
