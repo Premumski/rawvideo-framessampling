@@ -50,13 +50,37 @@ end
 
 
 #function for viedeo downscale resolution of every image in the video
-function downscalevideo(RawVideo120fps)
-    downscale120fps = []
-    for (i,img) in enumerate(RawVideo120fps)
-        #print(size(img))
-        push!(downscale120fps, imresize(img, (576,1024)))
-    end  
+function downscalevideo(RawVideo)
+    downscale120fps = [];
+    println("downscale video");
+
+    x = size(RawVideo[1],1);
+    y = size(RawVideo[1],2);
+    ratio = x/y; 
+
+    if ratio >= 1 && x > 1024
+        x = 1024;
+        y = round(Int, x/ratio);
+        if y % 2 != 0
+            y = y-1;
+        end
+        
+    elseif ratio < 1 && y > 1024
+        y = 1024;
+        x = round(Int, y*ratio);
+        if x % 2 != 0
+            x = x-1;
+        end
+    else 
+        return RawVideo
+    end
+
+    for (i,img) in enumerate(RawVideo)
+            push!(downscale120fps, imresize(img, (x,y)));
+    end
+    
     return downscale120fps
+
 end
 
 #function to rotate every image in the video to the right by 90°
